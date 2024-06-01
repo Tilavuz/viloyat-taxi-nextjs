@@ -1,19 +1,18 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { items } from "./items";
-import { CircleUser, UserCircle } from "lucide-react";
-import { useContext } from "react";
-import { AuthContext } from "@/context/auth-context";
+import { CircleUser } from "lucide-react";
 import Image from "next/image";
-import image1 from "@/public/image12321.jpg"
+import image1 from "@/public/image12321.jpg";
+import { useContext } from "react";
+import { UserContext } from "@/context/user-context";
 
 export default function Header() {
-  
-  const context = useContext(AuthContext)
+  const user = useContext(UserContext)
 
   return (
-    <header className="border-b p-4 bg-[#4338ca] fixed top-0 left-0 w-full h-[75px]">
+    <header className="border-b p-4 bg-[#4338ca] fixed top-0 left-0 w-full h-[75px] select-none">
       <div className="flex items-center justify-between container h-full">
         <div>
           <h2 className="font-bold text-2xl cursor-pointer text-white">
@@ -38,38 +37,41 @@ export default function Header() {
               );
             })}
           </ul>
-          {
-            context?.user ? (
-              <Link href={'/profile'} className="flex items-center gap-1 text-white">
-                {
-                  context?.user.photoURL ? (
-                    <Image 
-                      src={context?.user.photoURL}
-                      alt="profile image"
-                      width={45}
-                      height={45}
-                      className="rounded-full"
-                    />
-                  ) : (
-                    <Image 
-                      src={image1}
-                      alt={"profile image"}
-                      width={45}
-                      height={45}
-                      className="rounded-full"
-                    />
-                  )
-                }
+          {user ? (
+            <Link
+              href={"/profile"}
+              className="flex items-center gap-1 text-white"
+            >
+              {user.profile_picture ? (
+                <Image
+                  src={user.profile_picture}
+                  alt="profile image"
+                  width={45}
+                  height={45}
+                  className="rounded-full"
+                />
+              ) : (
+                <Image
+                  src={image1}
+                  alt={"profile image"}
+                  width={45}
+                  height={45}
+                  className="rounded-full"
+                />
+              )}
+            </Link>
+          ) : (
+            <Button
+              variant={"ghost"}
+              asChild
+              className="border-2 font-bold bg-white hover:bg-inherit hover:text-white transition"
+            >
+              <Link href={"/login"} className="flex items-center gap-1">
+                <CircleUser size={20} />
+                Kirish
               </Link>
-            ) : (
-              <Button variant={"ghost"} asChild className="border-2 font-bold bg-white hover:bg-inherit hover:text-white transition">
-                <Link href={'/login'} className="flex items-center gap-1">
-                  <CircleUser size={20}/>
-                    Kirish
-                </Link>
-              </Button>
-            )
-          }
+            </Button>
+          )}
         </nav>
       </div>
     </header>
