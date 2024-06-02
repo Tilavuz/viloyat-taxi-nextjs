@@ -4,14 +4,14 @@ import { Label } from "./ui/label";
 import Image from "next/image";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
-import image from "../public/image 2.svg"
+import image from "@/public/image 2.svg"
 
 export default function HomeContact() {
   return (
     <div className="flex justify-around items-center bg-[#f5f5f4] rounded-md py-12">
         <form className="flex gap-4 flex-col">
             <div>
-                <h3 className="font-bold text-4xl text-[#44403c]">Biz bilan bog'lanish</h3>
+                <h3 className="font-bold text-4xl text-[#44403c]">Biz bilan bog`lanish</h3>
             </div>
             <div className="flex flex-col gap-4">
                 <Label>

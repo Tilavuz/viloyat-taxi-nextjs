@@ -1,6 +1,6 @@
-import AboutComponent from "@/components/about-component/about-component";
-import { items } from "@/components/team/items";
-import Team from "@/components/team/team"
+import AboutComponent from "@/app/components/about-component/about-component";
+import { items } from "@/app/components/team/items";
+import Team from "@/app/components/team/team"
 
 export default function About() {
   return (

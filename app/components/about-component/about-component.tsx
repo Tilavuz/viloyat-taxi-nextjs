@@ -1,5 +1,5 @@
 import Image from "next/image";
-import image1 from "../../public/car-image.svg"
+import image1 from "@/public/car-image.svg"
 import Link from "next/link";
 import { Facebook, Instagram, Send } from "lucide-react";
 import { items } from "./items";
@@ -11,6 +11,8 @@ export default function AboutComponent() {
             <Image
                 src={image1}
                 alt="car image"
+                width={500}
+                height={500}
             />
         </div>
         <div className="text-white max-w-[600px] text-center">

@@ -1,5 +1,5 @@
 "use client"
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useEffect, useMemo, useState } from "react";
 import { useCookies } from "react-cookie";
 import { jwtDecode } from "jwt-decode";
 
@@ -36,8 +36,10 @@ export default function UserContextProvider({ children }: { children: ReactNode 
         }
     }, [cookies.token]);
 
+    const userMemo = useMemo(() => user, [user])
+
     return (
-        <UserContext.Provider value={user}>
+        <UserContext.Provider value={userMemo}>
             {children}
         </UserContext.Provider>
     );

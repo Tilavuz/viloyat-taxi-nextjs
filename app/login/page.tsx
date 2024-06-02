@@ -1,7 +1,7 @@
 "use client"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import LoginComponent from "@/components/login/login-component";
-import Register from "@/components/login/register";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/app/components/ui/tabs";
+import LoginComponent from "@/app/components/login/login-component";
+import Register from "@/app/components/login/register";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 

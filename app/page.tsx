@@ -1,9 +1,9 @@
-import HomeComponent from "@/components/home-component"
+import HomeComponent from "@/app/components/home-component"
 import image1 from '../public/image 8.svg'
 import image2 from '../public/image 1.svg'
 import image3 from '../public/7119303_3411096 1.svg'
 import image4 from '../public/car-image.svg'
-import HomeContact from "@/components/home-contact"
+import HomeContact from "@/app/components/home-contact"
 
 
 export default function Home() {
