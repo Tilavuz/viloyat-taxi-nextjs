@@ -2,26 +2,9 @@
 import { createContext, ReactNode, useEffect, useMemo, useState } from "react";
 import { useCookies } from "react-cookie";
 import { jwtDecode } from "jwt-decode";
+import { Driver, Passenger } from "@/interfaces/user-interface";
 
 const key = process.env.NEXT_PUBLIC_JWT_KEY || "";
-
-interface Passenger {
-    _id: string;
-    first_name: string;
-    last_name: string;
-    role: string;
-    profile_picture: string;
-    phone_number: string;
-    createdAt: string;
-    iat: number;
-    exp: number;
-}
-
-interface Driver extends Passenger {
-    birthday: string;
-    vehiclet_type: string;
-    vehiclet_number: string;
-}
 
 export const UserContext = createContext<Driver | Passenger | null>(null);
 

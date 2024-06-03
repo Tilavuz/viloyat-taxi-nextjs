@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import Header from "@/app/components/header/header";
 import Footer from "@/app/components/footer/footer";
 import UserContextProvider from "@/context/user-context";
+import UserPostsContextProvider from "@/context/user-posts-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,9 @@ export default function RootLayout({
       <UserContextProvider>
         <body className={inter.className}>
           <Header />
-          <div className="container pt-28 pb-20 min-h-screen">{children}</div>
+          <UserPostsContextProvider>
+            <div className="container pt-28 pb-20 min-h-screen">{children}</div>
+          </UserPostsContextProvider>
           <Footer />
         </body>
       </UserContextProvider>
