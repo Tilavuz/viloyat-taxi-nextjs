@@ -22,7 +22,7 @@ import { ImagePlus, Menu } from "lucide-react";
 import { useContext } from "react";
 import image1 from "@/public/image12321.jpg";
 import Image from "next/image";
-import DriverPostsData from "@/app/components/posts/driver-posts-data";
+import  PostsData from "@/app/components/posts/posts-data";
 
 export default function Profile() {
   const user = useContext(UserContext);
@@ -38,10 +38,11 @@ export default function Profile() {
               </Button>
             </SheetTrigger>
             <SheetContent>
-              <SheetHeader>
+              <SheetHeader className="mb-4">
                 <SheetTitle>Profilingiz</SheetTitle>
                 <SheetDescription>
-                  Lorem ipsum dolor sit amet consectetur.
+                  {user?.role === 'driver' && 'Haydovchi profili'}
+                  {user?.role === 'passenger' && 'Yo\'lovchi profili'}
                 </SheetDescription>
               </SheetHeader>
               <div className="flex flex-col">
@@ -92,7 +93,7 @@ export default function Profile() {
           </Dialog>
         </div>
       </div>
-      <DriverPostsData />
+      < PostsData />
     </div>
   );
 }
